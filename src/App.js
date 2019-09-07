@@ -1,12 +1,16 @@
 import React from 'react';
-import './styles/App.scss';
+import Header from './Components/elements/Header/Header';
+import Home from './Components/Home/Home';
 
-function App() {
+
+
+const App = () => {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
+    <div>
+      <Header />
+      <Home />
     </div>
   );
 }
 
-export default App;
+ export default App;
