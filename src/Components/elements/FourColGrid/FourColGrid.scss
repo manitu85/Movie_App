@@ -1,6 +1,8 @@
 .rmdb-grid h1 {
   font-family: 'Abel', sans-serif;
   font-size:42px;
+  margin-top: 3rem;
+  
 }
 
 .rmdb-grid-content {
@@ -8,6 +10,7 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px;
   position: relative;
+  margin: 3rem 0;
 }
 
 .rmdb-grid-element {

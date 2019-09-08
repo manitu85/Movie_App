@@ -16,13 +16,13 @@
   }
 }
 
-.rmdb-heroimage-content {
+.rmdb-heroimage__content {
   max-width: 1280px;
   padding: 20px;
   margin: 0 auto;
 }
 
-.rmdb-heroimage-text {
+.rmdb-heroimage__text {
   z-index: 100;
   max-width: 700px;
   position: absolute;
@@ -33,17 +33,18 @@
   color: #fff;
 }
 
-.rmdb-heroimage-text h1 {
+.rmdb-heroimage__text h1 {
   font-family: 'Abel', sans-serif;
-  font-size:48px;
+  font-size:30px;
   color: #fff;
+  margin-bottom: 2rem;
 }
 
-.rmdb-heroimage-text p {
+.rmdb-heroimage__text p {
   font-family: 'Abel', sans-serif;
-  font-size: 22px;
+  font-size: 1.8rem;
   line-height: 26px;
-  color: #fff;
+  color: rgb(230, 228, 228);
 }
 
 @media screen and (max-width: 720px) {

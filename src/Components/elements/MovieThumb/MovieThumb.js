@@ -1,9 +1,9 @@
 import React from 'react'
 
-function MovieThumb() {
+const MovieThumb = props => {
   return (
-    <div>
-      MovieThumb
+    <div className='rmdb-moviethumb'>
+      <img src={props.image} alt='moviethumb' />
     </div>
   )
 }

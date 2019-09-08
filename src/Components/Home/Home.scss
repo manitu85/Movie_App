@@ -6,4 +6,18 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
+
+  > h1 {
+    color: #43ffc7;
+    margin-top: 2.5rem;
+    font-size: 3rem;
+    text-align: left;
+    letter-spacing: 2px;
+
+    @media screen and (max-width: 500px) {
+      color: #ff4343;
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
 }
