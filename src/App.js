@@ -1,16 +1,25 @@
-import React from 'react';
-import Header from './Components/elements/Header/Header';
-import Home from './Components/Home/Home';
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Header from './Components/elements/Header/Header'
+import Home from './Components/Home/Home'
+import Movie from './Components/Movie/Movie'
+import NotFound from './Components/elements/NotFound/NotFound'
 
 
 
 const App = () => {
   return (
-    <div>
-      <Header />
-      <Home />
-    </div>
-  );
+    <Router>
+      <>
+        <Header />
+        <Switch>
+          <Route exact to='/' component={Home} />
+          <Route exact to='/:movieId' component={Movie} />
+          <Route component={NotFound} />
+        </Switch>
+      </>
+    </Router>
+  )
 }
 
- export default App;
+ export default App

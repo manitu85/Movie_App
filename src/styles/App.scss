@@ -1,6 +1,6 @@
 // IMPORT ALL SCSS FILES
-@import "reset";
-@import "fonts";
+@import "./base/reset";
+@import "./base/typography";
 @import "../Components/Home/Home";
 @import "../Components/elements/Header/Header";
 @import "../Components/elements/HeroImage/HeroImage";

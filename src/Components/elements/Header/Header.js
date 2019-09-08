@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import movie_logo from '../../../images/reactMovie_logo.png'
 import tmdb_logo from '../../../images/tmdb_logo.png'
 
@@ -6,10 +7,12 @@ const Header = () => {
   return (
     <div className='rmdb-header'>
       <div className='rmdb-header__content content'>
-        <img
-          className='content__rmdb-logo'
-          src={movie_logo} 
-          alt='rmdb-logo' />
+        <Link to='/'>
+          <img
+            className='content__rmdb-logo'
+            src={movie_logo}
+            alt='rmdb-logo' />
+        </Link>
         <img
           className='content__rmdb-tmdb-logo'
           src={tmdb_logo}
