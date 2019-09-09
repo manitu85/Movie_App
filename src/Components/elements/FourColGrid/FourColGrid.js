@@ -1,7 +1,6 @@
 import React from 'react'
 
 const FourColGrid = props => {
-  console.log(props.header);
 
   const renderEl = () => {
     const gridels = props.children.map((el, i) => (

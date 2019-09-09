@@ -13,8 +13,8 @@ const App = () => {
       <>
         <Header />
         <Switch>
-          <Route exact to='/' component={Home} />
-          <Route exact to='/:movieId' component={Movie} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/:movieId" component={Movie} />
           <Route component={NotFound} />
         </Switch>
       </>
