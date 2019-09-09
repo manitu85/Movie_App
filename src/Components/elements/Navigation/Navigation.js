@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Navigation = props => {
+  console.log("Movie Navigation:", props.movie)
   return (
     <div className='rmdb-navigation'>
       <div className='rmdb-navigation-content'>
