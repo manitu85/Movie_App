@@ -13,6 +13,7 @@ import MovieThumb from '../elements/MovieThumb/MovieThumb'
 import LoadMoreBtn from '../elements/LoadMore/LoadMoreBtn'
 import Spinner from '../elements/Spinner/Spinner'
 import noPoster from '../../images/no_image.jpg'
+import { VerticleButton as ScrollUpButton } from "react-scroll-up-button"; //Add this line Here
 
 
 
@@ -133,6 +134,7 @@ class Home extends Component {
             : null
           }
         </div>
+        <ScrollUpButton ShowAtPosition={600}/>
       </div>
     )
       }
