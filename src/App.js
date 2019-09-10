@@ -9,7 +9,7 @@ import NotFound from './Components/elements/NotFound/NotFound'
 
 const App = () => {
   return (
-    <Router basename='/react_rmdb/'>
+    <Router basename='/'>
       <>
         <Header />
         <Switch>
