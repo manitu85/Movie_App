@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { API_URL, API_KEY } from '../../config'
-import Navigation from '../elements/Navigation/Navigation'
-import MovieInfo from '../elements/MovieInfo/MovieInfo'
-import MovieInfoBar from '../elements/MovieInfoBar/MovieInfoBar'
-import Actor from '../elements/Actor/Actor';
-import FourColGrid from '../elements/FourColGrid/FourColGrid';
-import Spinner from '../elements/Spinner/Spinner';
+import { VerticleButton as ScrollUpButton } from "react-scroll-up-button";
+import { API_URL, API_KEY } from '../../helpers/config'
+import Navigation from '../Navigation/Navigation'
+import MovieInfo from '../MovieInfo/MovieInfo'
+import MovieInfoBar from '../MovieInfoBar/MovieInfoBar'
+import Actor from '../Actor/Actor';
+import FourColGrid from '../FourColGrid/FourColGrid';
+import Spinner from '../Spinner/Spinner';
 
 
 class Movie extends Component {
@@ -18,28 +19,30 @@ class Movie extends Component {
   }
 
   componentDidMount() {
+    const { movieId } = this.props.match.params;
     // Save fatched movie to local storage by movie ID
-    if (localStorage.getItem(`${this.props.match.params.movieId}`)) {
-      const state = JSON.parse(localStorage.getItem(`${this.props.match.params.movieId}`))
+    if (localStorage.getItem(`${movieId}`)) {
+      const state = JSON.parse(localStorage.getItem(`${movieId}`))
       this.setState({ ...state})
     } else {
       this.setState({ loading: false })
-      const url = `${API_URL}movie/${this.props.match.params.movieId}?api_key=${API_KEY}&language=en-US`;
+      const url = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`;
       this.getData(url)
     }
   }
 
   getData = url => {
+    const { movieId } = this.props.match.params;
     fetch(url)
       .then(result => result.json())
       .then(data => {
-        console.log(data)
+        // console.log(data)
         if (data.status_code) {
           this.setState({loading: false})
         } else {
           this.setState({movie: data}, () => {
             // then fatch actor in the setState callback function
-            const url = `${API_URL}movie/${this.props.match.params.movieId}/credits?api_key=${API_KEY}`;
+            const url = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
             fetch(url)
               .then(result => result.json())
               .then(data => {
@@ -49,7 +52,7 @@ class Movie extends Component {
                   directors,
                   loading: false
               }, () => {
-                    localStorage.setItem(`${this.props.match.params.movieId}`, JSON.stringify(this.state))
+                    localStorage.setItem(`${movieId}`, JSON.stringify(this.state))
               })
             })
           })
@@ -60,29 +63,32 @@ class Movie extends Component {
   
   
   render() {
+    const { movie,directors, actors, loading } = this.state;
+    const { location } = this.props;
+    
     return (
       <div className='rmdb-movie'>
-        {this.state.movie 
+        {movie 
           ? <div>
-             <Navigation movie={this.props.location.movieName} />
+             <Navigation movie={location.movieName} />
              <MovieInfo 
-              movie={this.state.movie} 
-              directors={this.state.directors} 
+              movie={movie} 
+              directors={directors} 
             />
             <MovieInfoBar 
-              time={this.state.movie.runtime} 
-              budget={this.state.movie.budget} 
-              revenue={this.state.movie.revenue} 
+              time={movie.runtime} 
+              budget={movie.budget} 
+              revenue={movie.revenue} 
             />
             </div>
           : null
         }
       
         {
-          this.state.actors 
+          actors 
             ? <div className='rmdb-movie-grid'>
                 <FourColGrid header={'Actors'}>
-                  {this.state.actors.map((el, i) => {
+                  {actors.map((el, i) => {
                     return <Actor key={i} actor={el} />
                   })}
                 </FourColGrid>
@@ -90,8 +96,9 @@ class Movie extends Component {
             : null
         }
 
-        { !this.state.actors && !this.state.loading ? <h1>No Movie Found</h1> : null }
-        { this.state.loading ? <Spinner /> : null}
+        { !actors && !loading ? <h1>No Movie Found</h1> : null }
+        { loading ? <Spinner /> : null}
+        <ScrollUpButton ShowAtPosition={600} />
       </div>
     )
   }

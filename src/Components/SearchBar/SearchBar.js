@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { FaSearchengin } from 'react-icons/fa'
+import PropTypes from 'prop-types'
 
 
 class SearchBar extends Component {
@@ -7,21 +8,18 @@ class SearchBar extends Component {
     value: ''
   }
 
-  timeout = null;
-
-  // /Must have this here so we can reset it
+  // /Must have this because reset
   timeout = null;
 
   onSearch = (event) => {
-    // ES6 Destructuring prop
-    // const { callback } = this.props;
+
+    const { callback } = this.props;
 
     this.setState({ value: event.target.value })
     clearTimeout(this.timeout);
-    // Set a timeout to wait for the user to stop writing
-    // So we don´t have to make unnessesary calls
+    // Set a timeout to wait for the user to stop writing because unnessesary call
     this.timeout = setTimeout(() => {
-      this.props.callback(this.state.value);
+      callback(this.state.value);
     }, 500);
   }
 
@@ -42,6 +40,10 @@ class SearchBar extends Component {
       </div>
     )
   }
+}
+
+SearchBar.propTypes = {
+  callback: PropTypes.func
 }
 
 export default SearchBar

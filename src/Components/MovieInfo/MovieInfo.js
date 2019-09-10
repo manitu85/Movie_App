@@ -1,21 +1,22 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
   IMAGE_BASE_URL,
   BACKDROP_SIZE,
   POSTER_SIZE
-} from '../../../config'
+} from '../../helpers/config'
 import { FaFilm } from 'react-icons/fa';
 import MovieThumb from '../MovieThumb/MovieThumb.js';
-import noPoster from '../../../images/no_image.jpg'
+import noPoster from '../../images/no_image.jpg'
 
 
 
-const MovieInfo = props => {
+const MovieInfo = ({movie, directors}) => {
   return (
     <div className='rmdb-movieinfo'
          style={{
-           background: props.movie.backdrop_path 
-            ? `url('${IMAGE_BASE_URL}${BACKDROP_SIZE}${props.movie.backdrop_path}')`
+           background: movie.backdrop_path 
+            ? `url('${IMAGE_BASE_URL}${BACKDROP_SIZE}${movie.backdrop_path}')`
             : '#000'
          }}
     >
@@ -23,16 +24,16 @@ const MovieInfo = props => {
         <div className='rmdb-movieinfo-thumb'>
           <MovieThumb 
             image={
-              props.movie.poster_path
-                ? `${IMAGE_BASE_URL}${POSTER_SIZE}${props.movie.poster_path}`
+              movie.poster_path
+                ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`
                 : noPoster 
             } 
           />
         </div>
         <div className='rmdb-movieinfo-text'>
-          <h1>{props.movie.title}</h1>
+          <h1>{movie.title}</h1>
           <h3>PLOT</h3>
-          <p>{props.movie.overview}</p>
+          <p>{movie.overview}</p>
           <h1>IMDB RATING</h1>
           <div className='rmdb-rating'>
             <meter 
@@ -41,13 +42,13 @@ const MovieInfo = props => {
               optimum="100" 
               low="40" 
               high="70" 
-              value={props.movie.vote_average * 10}>
+              value={movie.vote_average * 10}>
             </meter>
-            <p className="rmdb-score">{props.movie.vote_average}</p>
+            <p className="rmdb-score">{movie.vote_average}</p>
           </div>
-          {props.directors.length > 1 ? <h3>DIRECTORS</h3> : <h3>DIRECTOR</h3>}
+          {directors.length > 1 ? <h3>DIRECTORS</h3> : <h3>DIRECTOR</h3>}
           {
-            props.directors.map((el, i) => {
+            directors.map((el, i) => {
               return <p key={i} className='rmdb-director' >{el.name}</p>
             })
           }
@@ -56,6 +57,11 @@ const MovieInfo = props => {
       </div>
     </div>
   )
+}
+
+MovieInfo.propTypes = {
+  movie: PropTypes.object.isRequired,
+  directors: PropTypes.array,
 }
 
 export default MovieInfo

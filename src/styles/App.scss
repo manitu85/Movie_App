@@ -1,19 +1,19 @@
 // IMPORT ALL SCSS FILES
 @import "./base/reset";
 @import "./base/typography";
-@import "../Components/elements/FourColGrid/FourColGrid";
+@import "../Components/FourColGrid/FourColGrid";
 @import "../Components/Home/Home";
 @import "../Components/Movie/Movie";
-@import "../Components/elements/Header/Header";
-@import "../Components/elements/HeroImage/HeroImage";
-@import "../Components/elements/SearchBar/SearchBar";
-@import "../Components/elements/MovieThumb/MovieThumb";
-@import "../Components/elements/LoadMore/LoadMoreBtn";
-@import "../Components/elements/Spinner/Spinner";
-@import "../Components/elements/Navigation/Navigation";
-@import "../Components/elements/MovieInfo/MovieInfo";
-@import "../Components/elements/MovieInfoBar/MovieInfoBar";
-@import "../Components/elements/Actor/Actor";
+@import "../Components/Header/Header";
+@import "../Components/HeroImage/HeroImage";
+@import "../Components/SearchBar/SearchBar";
+@import "../Components/MovieThumb/MovieThumb";
+@import "../Components/LoadMore/LoadMoreBtn";
+@import "../Components/Spinner/Spinner";
+@import "../Components/Navigation/Navigation";
+@import "../Components/MovieInfo/MovieInfo";
+@import "../Components/MovieInfoBar/MovieInfoBar";
+@import "../Components/Actor/Actor";
 
 
 

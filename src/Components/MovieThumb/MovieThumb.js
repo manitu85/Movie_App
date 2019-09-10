@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 
+/* Send props via the Links "to" object. Here we create  own "movieName" */
 const MovieThumb = ({ image, movieId, movieName, clickable }) => (
   <div className="rmdb-moviethumb">
-    {/* You can send props via the Links "to" object. Here we create  own "movieName" */}
-    {clickable 
+    {
+      clickable 
       ? <Link to={{ pathname: `/${movieId}`, movieName: `${movieName}` }}>
           <img className="clickable" src={image} alt="moviethumb" />
         </Link>
