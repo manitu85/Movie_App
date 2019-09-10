@@ -9,12 +9,12 @@ import NotFound from './Components/elements/NotFound/NotFound'
 
 const App = () => {
   return (
-    <Router>
+    <Router basename='/react_rmdb/'>
       <>
         <Header />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/:movieId" component={Movie} />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/:movieId' component={Movie} />
           <Route component={NotFound} />
         </Switch>
       </>
