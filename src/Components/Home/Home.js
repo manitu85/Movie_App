@@ -52,25 +52,29 @@ class Home extends Component {
   }
 
 
-  getData = url => {
+  getData = async url => {
+    const { movies, heroImage, searchTerm } = this.state;
 
-    fetch(url)
-      .then(result => result.json())
-      .then(data => {
-        this.setState({
-        movies: [...this.state.movies, ...data.results],  // copy movie arr and add new movies
-        heroImage: this.state.heroImage || data.results[5],
+    const response = await fetch(url);
+    const data = await response.json();
+    
+    try {
+      this.setState({
+        movies: [...movies, ...data.results],  // copy movie arr and add new movies
+        heroImage: heroImage || data.results[4],
         loading: false,
         currentPage: data.page,
         totalPages: data.total_pages   
         }, () => {
-          if (this.state.searchTerm === '') {
+          if (searchTerm === '') {
             localStorage.setItem('HomeState', JSON.stringify(this.state))
           }
         }) 
-    console.log(data);
-    })
-    .catch(error => console.error('Error:', error))
+      }
+      
+     catch(err) {
+        console.log("There is an error:", err);
+     }
   }
 
 

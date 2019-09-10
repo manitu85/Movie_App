@@ -31,41 +31,45 @@ class Movie extends Component {
     }
   }
 
-  getData = url => {
+  getData = async url => {
     const { movieId } = this.props.match.params;
-    fetch(url)
-      .then(result => result.json())
-      .then(data => {
-        // console.log(data)
-        if (data.status_code) {
-          this.setState({loading: false})
-        } else {
-          this.setState({movie: data}, () => {
-            // then fatch actor in the setState callback function
-            const url = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
-            fetch(url)
-              .then(result => result.json())
-              .then(data => {
-                const directors = data.crew.filter( member => member.job === 'Director');
-                this.setState({
-                  actors: data.cast,
-                  directors,
-                  loading: false
+    
+    const response = await fetch(url);
+    const data = await response.json();
+    // const data = await (await fetch(url)).json()
+    try {
+      if (data.status_code) {
+        this.setState({ loading: false })
+      } else {
+        this.setState({ movie: data }, () => {
+          // then fatch actor in the setState callback function
+          const url = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
+          fetch(url)
+            .then(result => result.json())
+            .then(data => {
+              const directors = data.crew.filter(member => member.job === 'Director');
+              this.setState({
+                actors: data.cast,
+                directors,
+                loading: false
               }, () => {
-                    localStorage.setItem(`${movieId}`, JSON.stringify(this.state))
+                localStorage.setItem(`${movieId}`, JSON.stringify(this.state))
               })
             })
-          })
-        }
-      })
-      .catch(error => console.error('Error:', error))
+        })
+      }
+    }
+    
+    catch(err) {
+      console.log("There is an error:", err);
+    }
   }
-  
+
   
   render() {
     const { movie,directors, actors, loading } = this.state;
     const { location } = this.props;
-    
+
     return (
       <div className='rmdb-movie'>
         {movie 
