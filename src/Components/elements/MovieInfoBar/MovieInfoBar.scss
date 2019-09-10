@@ -1,5 +1,6 @@
 .rmdb-movieinfobar {
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 100%;
   min-height: 100px;
@@ -15,7 +16,8 @@
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  color: #fff;
+  color: #2edd8e;
+  
 }
 
 .rmdb-movieinfobar-content-col {

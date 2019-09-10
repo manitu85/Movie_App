@@ -6,7 +6,6 @@ import {
 } from '../../../config'
 import { FaFilm } from 'react-icons/fa';
 import MovieThumb from '../MovieThumb/MovieThumb.js';
-import Movie from '../../Movie/Movie';
 import noPoster from '../../../images/no_image.jpg'
 
 
@@ -25,10 +24,9 @@ const MovieInfo = props => {
           <MovieThumb 
             image={
               props.movie.poster_path
-                ? `url('${IMAGE_BASE_URL}${POSTER_SIZE}${props.movie.poster_path}')`
+                ? `${IMAGE_BASE_URL}${POSTER_SIZE}${props.movie.poster_path}`
                 : noPoster 
-              }
-            clickable={false}
+            } 
           />
         </div>
         <div className='rmdb-movieinfo-text'>

@@ -1,18 +1,19 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const FourColGrid = props => {
 
   const renderEl = () => {
-    const gridels = props.children.map((el, i) => (
-      <div key={i} className="rmdb-grid-el">
+    const gridEls = props.children.map((el, i) => (
+      <div key={i} className="rmdb-grid-element">
         {el}
       </div>
     ))
-    return gridels;
+    return gridEls;
   }
 
   return (
-    <>
+    <div className="rmdb-grid">
       {props.header && !props.loading 
         ? <h1>{props.header}</h1>
         : null
@@ -20,10 +21,15 @@ const FourColGrid = props => {
       <div className='rmdb-grid-content'>
         {renderEl()}
       </div>
-    </>
+    </div>
   )
+}
+FourColGrid.propTypes = {
+  header: PropTypes.string,
+  loading: PropTypes.bool
 }
 
 export default FourColGrid
 
 
+ 

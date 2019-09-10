@@ -1,16 +1,21 @@
 .rmdb-grid h1 {
   font-family: 'Abel', sans-serif;
-  font-size:42px;
+  font-size:3.6rem;
   margin-top: 3rem;
-  
+  text-align: center;
+  color: rgb(238, 238, 238);
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 .rmdb-grid-content {
+  // width: 1280px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px;
   position: relative;
   margin: 3rem 0;
+  margin: 0 auto;
 }
 
 .rmdb-grid-element {

@@ -27,10 +27,15 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.setState({loading: true})
-
-    const url = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
-    this.getData(url);
+    // Save fatched data to local storage
+    if (localStorage.getItem('HomeState')) {
+      const state = JSON.parse(localStorage.getItem('HomeState'))
+      this.setState({ ...state })
+    } else {
+      this.setState({loading: true})
+      const url = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+      this.getData(url);
+    }  
   }
 
 
@@ -44,7 +49,11 @@ class Home extends Component {
         loading: false,
         currentPage: data.page,
         totalPages: data.total_pages   
-      })
+        }, () => {
+          if (this.state.searchTerm === '') {
+            localStorage.setItem('HomeState', JSON.stringify(this.state))
+          }
+        }) 
     })
       .catch(error => console.error('Error:', error))
   }

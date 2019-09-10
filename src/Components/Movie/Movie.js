@@ -18,12 +18,15 @@ class Movie extends Component {
   }
 
   componentDidMount() {
-    this.setState({ loading: false })
-
-    // first fetch the movie
-    const url = `${API_URL}movie/${this.props.match.params.movieId}?api_key=${API_KEY}&language=en-US`;
-    this.getData(url)
-    console.log(url);
+    // Save fatched movie to local storage by movie ID
+    if (localStorage.getItem(`${this.props.match.params.movieId}`)) {
+      const state = JSON.parse(localStorage.getItem(`${this.props.match.params.movieId}`))
+      this.setState({ ...state})
+    } else {
+      this.setState({ loading: false })
+      const url = `${API_URL}movie/${this.props.match.params.movieId}?api_key=${API_KEY}&language=en-US`;
+      this.getData(url)
+    }
   }
 
   getData = url => {
@@ -45,7 +48,9 @@ class Movie extends Component {
                   actors: data.cast,
                   directors,
                   loading: false
-                })
+              }, () => {
+                    localStorage.setItem(`${this.props.match.params.movieId}`, JSON.stringify(this.state))
+              })
             })
           })
         }

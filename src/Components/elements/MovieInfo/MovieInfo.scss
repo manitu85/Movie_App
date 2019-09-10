@@ -46,13 +46,14 @@
 .rmdb-movieinfo-text h3 {
   font-size: 16px;
   line-height: 0;
-  margin-top: 30px;
+  margin: 30px 0 20px;
 }
 
 .rmdb-movieinfo-text p {
   font-family: 'Abel', sans-serif;
   font-size: 18px;
-  line-height: 26px;
+  line-height: 25px;
+  margin-bottom: 20px;
 }
 
 .rmdb-rating {
@@ -78,6 +79,7 @@
   bottom: 40px;
   right: 40px;
   color: #fff;
+  font-size: 5rem;
 }
 
 meter::-webkit-meter-bar {
