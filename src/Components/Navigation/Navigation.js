@@ -5,16 +5,15 @@ import PropTypes from 'prop-types'
 
 const Navigation = ({movie}) => (
   <div className='rmdb-navigation'>
-    <div className='rmdb-navigation-content'>
+    <div className='rmdb-navigation__content'>
       <Link to='/'>
-        <p>Home</p>
+        <p className='rmdb-navigation__link rmdb-navigation__link--isHover'>Home</p>
       </Link>
-      <p>/</p>
-      <p>{movie}</p>
+      <p className='rmdb-navigation__link'>/</p>
+      <p className='rmdb-navigation__link'>{movie}</p>
     </div>
   </div>
 )
-
 
 Navigation.propTypes = {
   movie: PropTypes.string

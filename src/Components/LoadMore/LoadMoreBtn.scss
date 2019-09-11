@@ -8,14 +8,14 @@
   transition: all 0.3s;
   border-radius: 20px;
   margin-top: 3rem;
-}
-
-.rmdb-loadmorebtn p {
+  
+  &__text {
   font-family: 'Abel', sans-serif;
   font-size:42px;
   padding: 20px;
-}
+ }
 
-.rmdb-loadmorebtn:hover {
-  opacity: 0.8;
+  &:hover {
+    opacity: .8;
+  }
 }

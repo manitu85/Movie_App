@@ -20,8 +20,8 @@ const MovieInfo = ({movie, directors}) => {
             : '#000'
          }}
     >
-      <div className='rmdb-movieinfo-content'>
-        <div className='rmdb-movieinfo-thumb'>
+      <div className='rmdb-movieinfo__content'>
+        <div className='rmdb-movieinfo__thumb'>
           <MovieThumb 
             image={
               movie.poster_path
@@ -30,12 +30,12 @@ const MovieInfo = ({movie, directors}) => {
             } 
           />
         </div>
-        <div className='rmdb-movieinfo-text'>
+        <div className='rmdb-movieinfo__text'>
           <h1>{movie.title}</h1>
           <h3>PLOT</h3>
           <p>{movie.overview}</p>
           <h1>IMDB RATING</h1>
-          <div className='rmdb-rating'>
+          <div className='rmdb-movieinfo__rating'>
             <meter 
               min="0" 
               max="100" 
@@ -44,12 +44,12 @@ const MovieInfo = ({movie, directors}) => {
               high="70" 
               value={movie.vote_average * 10}>
             </meter>
-            <p className="rmdb-score">{movie.vote_average}</p>
+            <p className="rmdb-movieinfo__score">{movie.vote_average}</p>
           </div>
           {directors.length > 1 ? <h3>DIRECTORS</h3> : <h3>DIRECTOR</h3>}
           {
             directors.map((el, i) => {
-              return <p key={i} className='rmdb-director' >{el.name}</p>
+              return <p key={i} className='rmdb-movieinfo__director' >{el.name}</p>
             })
           }
         </div>

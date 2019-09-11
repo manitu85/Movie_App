@@ -1,53 +1,57 @@
 .rmdb-searchbar {
   width: 100%;
-  height: 105px;
+  height: 10.5rem;
   background: #1c1c1c;
   position: relative;
-  padding: 25px 20px 0px 20px;
+  padding: 2.5rem 2rem 0 2rem;
   box-sizing: border-box;
   color: #fff;
-}
 
-.rmdb-searchbar-content {
-  max-width: 1280px;
-  width: 100%;
-  height: 55px;
-  background:#353535;
-  margin: 0 auto;
-  border-radius: 40px;
-  position: relative;
-  color: #fff;
-  margin-bottom: 2.5rem;
-}
+  &__content {
+    max-width: 1280px;
+    width: 100%;
+    height: 5.5rem;
+    background:#353535;
+    margin: 0 auto;
+    border-radius: 4rem;
+    position: relative;
+    color: #fff;
+    margin-bottom: 2.5rem;
+  }
 
-.rmdb-fa-search {
-  position: absolute;
-  left: 20px;
-  top: 12px;
-  font-size: 3rem;
-  color: #fff;
-}
+  &__input {
+    font-family: 'Abel', sans-serif;
+    font-size: 3rem;
+    position: relative;
+    margin: .8rem 0 0 6rem;
+    border: 0;
+    background: transparent;
+    height: 4rem;
+    width: 90%;
+    color: #fff;
+    
+    &:focus {
+      outline: none;
+    }
 
-.rmdb-searchbar-input {
-  font-family: 'Abel', sans-serif;
-  font-size: 3rem;
-  position: relative;
-  margin: 8px 0 0 60px;
-  border: 0;
-  background: transparent;
-  height: 40px;
-  width: 90%;
-  color: #fff;
-}
+    @media screen and (max-width: 720px) {
+      margin: .8rem 0 0 6rem;
+      font-size: 2.8rem;
+      color: #dfdfdf;
+    }
+  }
 
-.rmdb-searchbar-input:focus {
-  outline: none;
-}
-
-@media screen and (max-width: 720px) {
-  .rmdb-searchbar-input {
-    margin: 8px 0 0 60px;
-    font-size: 28px;
+  &__fa-search {
+    position: absolute;
+    left: 2rem;
+    top: 1.2rem;
+    font-size: 3rem;
     color: #fff;
   }
 }
+
+
+
+
+
+

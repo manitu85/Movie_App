@@ -8,7 +8,7 @@ class SearchBar extends Component {
     value: ''
   }
 
-  // /Must have this because reset
+  // /Must have  because reset
   timeout = null;
 
   onSearch = (event) => {
@@ -26,13 +26,13 @@ class SearchBar extends Component {
   render() {
     return (
       <div className='rmdb-searchbar'>
-        <div className='rmdb-searchbar-content'>
-          <FaSearchengin className='rmdb-fa-search' />
+        <div className='rmdb-searchbar__content'>
+          <FaSearchengin className='rmdb-searchbar__fa-search' />
           <input 
             type='text' 
             name='search' 
             placeholder='Search...' 
-            className='rmdb-searchbar-input'
+            className='rmdb-searchbar__input'
             value={this.state.value}
             onChange={this.onSearch}
             />

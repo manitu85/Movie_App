@@ -1,13 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { VerticleButton as ScrollUpButton } from "react-scroll-up-button"; //Add this line Here
-import HeroImage from '../HeroImage/HeroImage'
-import SearchBar from '../SearchBar/SearchBar'
-import FourColGrid from '../FourColGrid/FourColGrid'
-import MovieThumb from '../MovieThumb/MovieThumb'
-import LoadMoreBtn from '../LoadMore/LoadMoreBtn'
-import Spinner from '../Spinner/Spinner'
-import noPoster from '../../images/no_image.jpg'
 import {
   API_URL,
   API_KEY,
@@ -15,7 +7,14 @@ import {
   BACKDROP_SIZE,
   POSTER_SIZE
 } from '../../helpers/config'
-
+import { VerticleButton as ScrollUpButton } from 'react-scroll-up-button'; 
+import HeroImage from '../HeroImage/HeroImage'
+import SearchBar from '../SearchBar/SearchBar'
+import FourColGrid from '../FourColGrid/FourColGrid'
+import MovieThumb from '../MovieThumb/MovieThumb'
+import LoadMoreBtn from '../LoadMore/LoadMoreBtn'
+import Spinner from '../Spinner/Spinner'
+import noPoster from '../../images/no_image.jpg'
 
 
 class Home extends Component {
@@ -28,7 +27,7 @@ class Home extends Component {
     searchTerm: ''
   }
 
-  // ES7 class propTypes
+  // ES7 static propTypes class
   static propTypes = {
     movies:  PropTypes.array,
     heroImage:  PropTypes.string,
@@ -61,7 +60,7 @@ class Home extends Component {
     try {
       this.setState({
         movies: [...movies, ...data.results],  // copy movie arr and add new movies
-        heroImage: heroImage || data.results[4],
+        heroImage: heroImage || data.results[5],
         loading: false,
         currentPage: data.page,
         totalPages: data.total_pages   
@@ -71,9 +70,9 @@ class Home extends Component {
           }
         }) 
       }
-      
+
      catch(err) {
-        console.log("There is an error:", err);
+        console.log('There is an error:', err);
      }
   }
 
@@ -121,17 +120,17 @@ class Home extends Component {
       <div className='rmdb-home'>
         {
           heroImage 
-          ? <div>
-              <HeroImage 
-                image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${heroImage.backdrop_path}`}
-                title={heroImage.original_title}
-                text={heroImage.overview}
-              />
-              <SearchBar callback={this.searchItems} />
-          </div> 
-          : null 
+            ? <div>
+                <HeroImage 
+                  image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${heroImage.backdrop_path}`}
+                  title={heroImage.original_title}
+                  text={heroImage.overview}
+                />
+                <SearchBar callback={this.searchItems} />
+            </div> 
+            : null 
         }
-        <div className='rmdb-home-grid'>
+        <div className='rmdb-home__grid'>
           <FourColGrid
             header={searchTerm ? 'Search result' : 'Popular movies 2019' }
             loading={loading}

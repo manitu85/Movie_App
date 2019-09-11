@@ -10,28 +10,35 @@
   box-sizing: border-box;
   font-family: 'Abel', sans-serif;
   font-size: 20px;
+
+  @media screen and (max-width: 425px) {
+    font-size: 14px;
+  }
+
+  &__content {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    color: #2edd8e;
+    text-align: center;
+    
+  }
+
+  &__content-col {
+    float: left;
+    width: 33.33%;
+    box-sizing: border-box;
+    padding: 10px 20px 0 0;
+  }
+
+  &__info {
+    padding: 5px 0 0 10px;
+    float: left;
+  }
+
 }
 
-.rmdb-movieinfobar-content {
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto;
-  color: #2edd8e;
-  
-}
-
-.rmdb-movieinfobar-content-col {
-  float: left;
-  width: 33.33%;
-  box-sizing: border-box;
-  padding: 10px 20px 0 0;
-}
-
-.rmdb-movieinfobar-info {
-  padding: 5px 0 0 10px;
-  float: left;
-}
-
+// Fontawesome icons style
 .fa-time, .fa-revenue {
   float: left;
   margin-top: 8px;
@@ -42,20 +49,9 @@
   margin-top: 7px;
 }
 
-@media screen and (max-width: 425px) {
-  .rmdb-movieinfobar {
-    font-size: 14px;
-  }
-}
-
 @media screen and (max-width: 768px) {
   .fa-time, .fa-revenue, .fa-budget {
     display: none;
   }
 }
 
-@media screen and (max-width: 1000px) {
-  .rmdb-movieinfobar-content-col {
- 
-  }
-}

@@ -8,14 +8,15 @@ const Actor = ({actor}) => {
   return (
     <div className='rmdb-actor'>
       <img 
+        className='rmdb-actor__image'
         src={actor.profile_path 
               ? `${IMAGE_BASE_URL}${POSTER_SIZE}/${actor.profile_path}` 
               : noPoster
             }
         alt='actor-thumb'
       />
-      <span className='rmdb-actor-name'>{actor.name}</span>
-      <span className='rmdb-actor-character'>{actor.character}</span>
+      <span className='rmdb-actor__name'>{actor.name}</span>
+      <span className='rmdb-actor__character'>{actor.character}</span>
     </div>
   )
 }

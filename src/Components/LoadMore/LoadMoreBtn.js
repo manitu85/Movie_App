@@ -7,7 +7,7 @@ const LoadMoreBtn = ({onClick, text}) => (
     className='rmdb-loadmorebtn'
     onClick={onClick}
   >
-    <p>{text}</p>
+    <p className='rmdb-loadmorebtn__text'>{text}</p>
   </div>
 )
 

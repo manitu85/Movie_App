@@ -90,7 +90,7 @@ class Movie extends Component {
       
         {
           actors 
-            ? <div className='rmdb-movie-grid'>
+            ? <div className='rmdb-movie__grid'>
                 <FourColGrid header={'Actors'}>
                   {actors.map((el, i) => {
                     return <Actor key={i} actor={el} />

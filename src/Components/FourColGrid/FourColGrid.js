@@ -5,7 +5,7 @@ const FourColGrid = ({children, header, loading}) => {
 
   const renderEl = () => {
     const gridEls = children.map((el, i) => (
-      <div key={i} className="rmdb-grid-element">
+      <div key={i} className="rmdb-grid__element">
         {el}
       </div>
     ))
@@ -16,10 +16,10 @@ const FourColGrid = ({children, header, loading}) => {
     <div className="rmdb-grid">
       {
         header && !loading 
-        ? <h1>{header}</h1>
+          ? <h1 className='rmdb-grid__header' >{header}</h1>
         : null
       }
-      <div className='rmdb-grid-content'>
+      <div className='rmdb-grid__content'>
         {renderEl()}
       </div>
     </div>
