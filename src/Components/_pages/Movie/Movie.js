@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { VerticleButton as ScrollUpButton } from "react-scroll-up-button";
-import { API_URL, API_KEY } from '../../helpers/config'
-import Navigation from '../Navigation/Navigation'
-import MovieInfo from '../MovieInfo/MovieInfo'
-import MovieInfoBar from '../MovieInfoBar/MovieInfoBar'
-import Actor from '../Actor/Actor';
-import FourColGrid from '../FourColGrid/FourColGrid';
-import Spinner from '../Spinner/Spinner';
+import { API_URL, API_KEY } from '../../../helpers/config'
+import Navigation from '../../Navigation/Navigation'
+import MovieInfo from '../../MovieInfo/MovieInfo'
+import MovieInfoBar from '../../MovieInfoBar/MovieInfoBar'
+import Actor from '../../Actor/Actor';
+import FourColGrid from '../../FourColGrid/FourColGrid';
+import Spinner from '../../Spinner/Spinner';
 
 
 class Movie extends Component {
