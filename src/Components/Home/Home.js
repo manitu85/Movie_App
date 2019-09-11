@@ -14,7 +14,7 @@ import FourColGrid from '../FourColGrid/FourColGrid'
 import MovieThumb from '../MovieThumb/MovieThumb'
 import LoadMoreBtn from '../LoadMore/LoadMoreBtn'
 import Spinner from '../Spinner/Spinner'
-import noPoster from '../../images/no_image.jpg'
+import noPoster from '../../images/no_image.jpg' 
 
 
 class Home extends Component {
@@ -119,17 +119,17 @@ class Home extends Component {
     return (
       <div className='rmdb-home'>
         {
-          heroImage 
+          heroImage && !searchTerm
             ? <div>
                 <HeroImage 
                   image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${heroImage.backdrop_path}`}
                   title={heroImage.original_title}
                   text={heroImage.overview}
                 />
-                <SearchBar callback={this.searchItems} />
             </div> 
             : null 
         }
+        <SearchBar callback={this.searchItems} />
         <div className='rmdb-home__grid'>
           <FourColGrid
             header={searchTerm ? 'Search result' : 'Popular movies 2019' }
@@ -148,7 +148,7 @@ class Home extends Component {
           }
           </FourColGrid>
           {loading ? <Spinner /> : null }
-          {(currentPage <= totalPages && !loading)
+          {(currentPage < totalPages && !loading)
             ? <LoadMoreBtn text='Load more' onClick={this.loadMoreItems} />
             : null
           }
