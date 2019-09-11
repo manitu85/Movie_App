@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Header from './Components/Header/Header'
-import Home from './Components/_pages/Home/Home'
-import Movie from './Components/_pages/Movie/Movie'
+import Home from './Components/Home/Home'
+import Movie from './Components/Movie/Movie'
 import NotFound from './Components/NotFound/NotFound'
 
 

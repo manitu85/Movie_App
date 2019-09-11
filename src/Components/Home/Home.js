@@ -6,15 +6,15 @@ import {
   IMAGE_BASE_URL,
   BACKDROP_SIZE,
   POSTER_SIZE
-} from '../../../helpers/config'
+} from '../../helpers/config'
 import { VerticleButton as ScrollUpButton } from 'react-scroll-up-button'; 
-import HeroImage from '../../HeroImage/HeroImage'
-import SearchBar from '../../SearchBar/SearchBar'
-import FourColGrid from '../../FourColGrid/FourColGrid'
-import MovieThumb from '../../MovieThumb/MovieThumb'
-import LoadMoreBtn from '../../LoadMore/LoadMoreBtn'
-import Spinner from '../../Spinner/Spinner'
-import noPoster from '../../../images/no_image.jpg'
+import HeroImage from '../HeroImage/HeroImage'
+import SearchBar from '../SearchBar/SearchBar'
+import FourColGrid from '../FourColGrid/FourColGrid'
+import MovieThumb from '../MovieThumb/MovieThumb'
+import LoadMoreBtn from '../LoadMore/LoadMoreBtn'
+import Spinner from '../Spinner/Spinner'
+import noPoster from '../../images/no_image.jpg'
 
 
 class Home extends Component {
